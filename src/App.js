@@ -33,7 +33,7 @@ function App() {
     setPickTo(pickTo);
   }
   return (
-    <div className="App">
+    <div className="">
       <loggedInUserContext.Provider value={[loggedInUser, setLoggedInUser]}>
         <p>name:{loggedInUser.name} </p>
         <Router>

@@ -9,7 +9,7 @@ const Destination = (props) => {
     //     console.log(e.target.name,e.target.value)
     // }
     return (
-        <div className="row">
+        <div className="row m-2">
             <div className="col-md-3 " style={{ backgroundColor: "#EFEFEF" }}>
                 <label htmlFor="pickFrom" className="text-right">Pick From</label><br />
                 <input type="text" className="form-control" id="pickFrom" name="pickFrom" required />

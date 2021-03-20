@@ -9,7 +9,7 @@ const Home = (props) => {
         console.log(props.handleRide)
 
         return (
-                <div className="row m-5 justify-content-center">
+                <div className="row m-5 p-5 justify-content-center">
                         <Link to="/destination" className="bg-light bike col-md-2  text-center m-3 p-4 ">
                                 <Button onClick={() => props.handleRider("bike")} className="bg-light">
                                         <img src={bike} style={{ width: "150px" }} alt="" />
