@@ -32,19 +32,23 @@ function App() {
     setPickFrom(pickFrom);
     setPickTo(pickTo);
   }
+  console.log("log in user", loggedInUser)
   return (
     <div className="">
       <loggedInUserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-        <p>name:{loggedInUser.name} </p>
+        
         <Router>
           <nav className="text-right m-2">
             <Link className="navbar-brand" to="/home" >Home</Link>
             <Link className="navbar-brand" to="/destination" >Destination</Link>
             <Link className="navbar-brand" to="/" >Blog</Link>
             <Link className="navbar-brand" to="/" >Contact</Link>
-            <Button className="bg-dark">
-              <Link className="navbar-brand" to="/login" >Login</Link>
-            </Button>
+            {
+              loggedInUser.email ? <span className="text-dark font-weight-bold">{loggedInUser.name}</span>  : <Button className="bg-dark">
+                <Link className="navbar-brand" to="/login" >Login</Link>
+              </Button>
+            }
+
 
           </nav>
           <Switch>

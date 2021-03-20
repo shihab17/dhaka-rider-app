@@ -8,6 +8,7 @@ import { useHistory, useLocation } from 'react-router';
 import { Button } from 'react-bootstrap';
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(loggedInUserContext);
+    console.log("login user", loggedInUser)
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
@@ -63,10 +64,13 @@ const Login = () => {
                 if (user.email && user.password) {
                     firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
                         .then((userCredential) => {
+                            const newUserInfo = { ...user };
                             const newMessage = { ...msg };
                             newMessage.success = true;
                             newMessage.errorMsg = '';
                             setMsg(newMessage);
+                            setUser(newUserInfo);
+                            updateUserName(user.name);
                         })
                         .catch((error) => {
                             const newMessage = { ...msg };
@@ -90,6 +94,14 @@ const Login = () => {
                     newMessage.success = true;
                     newMessage.errorMsg = '';
                     setMsg(newMessage);
+                    const { displayName, email } = userCredential.user;
+                    const signedInUser = {
+                        name: displayName,
+                        email: email
+                    }
+                    setLoggedInUser(signedInUser);
+                    history.replace(from)
+                    console.log(userCredential.user)
                 })
                 .catch((error) => {
                     const newMessage = { ...msg };
@@ -101,7 +113,20 @@ const Login = () => {
 
         e.preventDefault();
     }
-    console.log(msg)
+
+    const updateUserName = (name) => {
+        var user = firebase.auth().currentUser;
+
+        user.updateProfile({
+            displayName: name,
+        }).then(function () {
+            // Update successful.
+            console.log("name", name)
+        }).catch(function (error) {
+            // An error happened.
+        });
+    }
+
     const handleGoogleSignIn = () => {
         // firebase.initializeApp(firebaseConfig)
         firebase.auth()
@@ -127,7 +152,7 @@ const Login = () => {
 
                     <h1>Create an account </h1>
                     <p className="text-danger">{msg.errorMsg}</p>
-                    {msg.success && <p className="text-success">User {newUser ? "created" : "Logged In" }  successfully </p>}
+                    {msg.success && <p className="text-success">User {newUser ? "created" : "Logged In"}  successfully </p>}
                     <br />
                     <form action="" onSubmit={handleSubmit} className="form-group">
                         {
@@ -150,16 +175,20 @@ const Login = () => {
                         }
 
                         <br />
-                        <input type="submit" className="btn btn-primary btn-block  p-2" value="Create an account " />
+                        <input type="submit" className="btn btn-primary btn-block  p-2" value={newUser ? "Create an account " : "Login"} />
                     </form>
-                    <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="newUser" />
-                    <p htmlFor="newUser">New User</p>
+                    <input style={{ display: 'none' }} type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="newUser" />
+                    {
+                        newUser ? <div>Don’t have an account? <label htmlFor="newUser"><span className="badge badge-primary"> Create an account</span> </label></div>  : 
+                       <div>Already have an account?<label htmlFor="newUser"> <span className="badge badge-primary"> Login </span> </label></div> 
+                    }
+                    
                 </div>
 
 
             </div>
 
-            <div ClassName=" row d-flex justify-content-center">
+            <div className=" row d-flex justify-content-center">
 
             </div>
             <div className="row d-flex justify-content-center m-2" >
