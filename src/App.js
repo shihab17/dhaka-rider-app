@@ -15,7 +15,7 @@ import Destination from './Components/Destination/Destination';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Search from './Components/Search/Search';
 import NoMatch from './Components/NoMatch/NoMatch';
-import data from './Data/Data.json'
+import data from './Data/Data.json';
 export const loggedInUserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -24,7 +24,6 @@ function App() {
   const [rider, setRider] = useState([])
   let history = useHistory();
   const handleRider = (ride) => {
-    console.log("clicked by", ride)
     setRider(ride)
   }
   
@@ -61,10 +60,10 @@ function App() {
               <Home handleRider={handleRider}></Home>
             </Route>
             <PrivateRoute path="/destination">
-              <Destination data={data} handleSearch={handleSearch}></Destination>
+              <Destination  handleSearch={handleSearch}></Destination>
             </PrivateRoute>
             <PrivateRoute path="/search">
-              <Search pickFrom={pickFrom} pickTo={pickTo} ride={rider}></Search>
+              <Search data={data} pickFrom={pickFrom} pickTo={pickTo} ride={rider}></Search>
             </PrivateRoute>
             <Route path="/login">
               <Login></Login>

@@ -1,150 +1,23 @@
 [
 	{
-		"id": 100,
-		"sourceCity": "Lacombe",
-		"destinationCity": "Toowoomba",
-		"seat": 8,
-		"type": "Bus"
-	},
-	{
-		"id": 101,
-		"sourceCity": "Gosselies",
-		"destinationCity": "Chimbarongo",
-		"seat": 8,
-		"type": "Bus"
-	},
-	{
-		"id": 102,
-		"sourceCity": "l'Ecluse",
-		"destinationCity": "Brechin",
-		"seat": 7,
-		"type": "Train"
-	},
-	{
-		"id": 103,
-		"sourceCity": "Piedecuesta",
-		"destinationCity": "Sant'Urbano",
-		"seat": 7,
-		"type": "Train"
-	},
-	{
-		"id": 104,
-		"sourceCity": "Edinburgh",
-		"destinationCity": "Marchihue",
-		"seat": 8,
-		"type": "Car"
-	},
-	{
-		"id": 105,
-		"sourceCity": "Delmenhorst",
-		"destinationCity": "Vihari",
-		"seat": 4,
-		"type": "Bike"
-	},
-	{
-		"id": 106,
-		"sourceCity": "Sparwood",
-		"destinationCity": "Montignies-sur-Sambre",
-		"seat": 7,
-		"type": "Train"
-	},
-	{
-		"id": 107,
-		"sourceCity": "Lambersart",
-		"destinationCity": "Poederlee",
-		"seat": 4,
-		"type": "Bus"
-	},
-	{
-		"id": 108,
-		"sourceCity": "Anzi",
-		"destinationCity": "Uribia",
-		"seat": 3,
-		"type": "Car"
-	},
-	{
-		"id": 109,
-		"sourceCity": "San Juan del Cesar",
-		"destinationCity": "Gretna",
-		"seat": 5,
-		"type": "Bus"
-	},
-	{
-		"id": 110,
-		"sourceCity": "Cassano Spinola",
-		"destinationCity": "Valuyki",
-		"seat": 3,
-		"type": "Car"
-	},
-	{
-		"id": 111,
-		"sourceCity": "Palmira",
-		"destinationCity": "Cañete",
-		"seat": 10,
-		"type": "Bus"
-	},
-	{
-		"id": 112,
-		"sourceCity": "Jemappes",
-		"destinationCity": "La Valle/Wengen",
-		"seat": 5,
-		"type": "Bike"
-	},
-	{
-		"id": 113,
-		"sourceCity": "Port Harcourt",
-		"destinationCity": "Mandya",
-		"seat": 9,
-		"type": "Bike"
-	},
-	{
-		"id": 114,
-		"sourceCity": "Terrance",
-		"destinationCity": "Asse",
-		"seat": 2,
-		"type": "Car"
-	},
-	{
-		"id": 115,
-		"sourceCity": "Cleveland",
-		"destinationCity": "Viggianello",
-		"seat": 6,
-		"type": "Bike"
-	},
-	{
-		"id": 116,
-		"sourceCity": "Lauder",
-		"destinationCity": "Verkhneuralsk",
-		"seat": 10,
-		"type": "Train"
-	},
-	{
-		"id": 117,
-		"sourceCity": "Cedar Rapids",
-		"destinationCity": "Kirkby Lonsdale",
-		"seat": 9,
-		"type": "Car"
-	},
-	{
-		"id": 118,
-		"sourceCity": "Lima",
-		"destinationCity": "San Martino in Pensilis",
-		"seat": 3,
-		"type": "Bike"
-	},
-	{
-		"id": 119,
-		"sourceCity": "Goes",
-		"destinationCity": "Alessandria",
-		"seat": 4,
-		"type": "Car"
-	},
-	{
-		"id": 120,
-		"sourceCity": "Oklahoma City",
-		"destinationCity": "Osorno",
-		"seat": 4,
-		"type": "Car"
-	}
+        "ride" : "bike",
+        "fare": 67,
+        "seat": 2
+    },
+    {
+        "ride" : "car",
+        "fare": 50,
+        "seat": 4
+    },
+    {
+        "ride" : "bus",
+        "fare": 20,
+        "seat": 40
+    },
+    {
+        "ride" : "train",
+        "fare": 10,
+        "seat": 150
+    }
 	
 ]

@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import './Destination.css'
 const Destination = (props) => {
-const {data} = props;
-console.log(data)
     return (
         <div className="destination">
             <div className="row m-2 ">

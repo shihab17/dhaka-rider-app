@@ -9,6 +9,7 @@ import './Home.css'
 const Home = (props) => {
         console.log(props.handleRide)
         const {handleRider} = props;
+        console.log(handleRider)
         return (
                 <div className="home">
                 

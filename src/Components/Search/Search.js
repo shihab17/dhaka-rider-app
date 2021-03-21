@@ -13,10 +13,13 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 const Search = (props) => {
-    const { pickFrom, pickTo, ride } = props;
-    let rideImage;
+    const { pickFrom, pickTo, ride,data } = props;
+    const [rides] = data.filter(r => r.ride == ride);
+    const {fare,seat} = rides;
+    let rideImage = bike;
+   
     if (ride === "bike") {
-        rideImage = bike;
+        rideImage = bike;  
     }
     else if (ride === "car") {
         rideImage = car;
@@ -26,6 +29,7 @@ const Search = (props) => {
     }
     else if (ride === "train") {
         rideImage = train;
+       
     }
     return (
         <div className="row">
@@ -52,10 +56,10 @@ const Search = (props) => {
                         <img src={rideImage} style={{ width: "50px" }} alt="image" />
                     </div>
                     <div className="col-6 m-2 text-center">
-                        <p text-capitalize>{ride} <img style={{width:'20px'}} src={peopleicon} alt=""/> 4</p>
+                        <p text-capitalize>{ride} <img style={{width:'20px'}} src={peopleicon} alt=""/> {seat}</p>
                     </div>
                     <div className="col-2 m-2">
-                        <p>$67</p>
+                        <p>${fare}</p>
                     </div>
                 </div>
                 <div className="row  m-2 bg-light p-3">
@@ -63,10 +67,10 @@ const Search = (props) => {
                         <img src={rideImage} style={{ width: "50px" }} alt="image" />
                     </div>
                     <div className="col-6 m-2 text-center">
-                        <p text-capitalize>{ride} <img style={{width:'20px'}} src={peopleicon} alt=""/> 4</p>
+                        <p text-capitalize>{ride} <img style={{width:'20px'}} src={peopleicon} alt=""/> {seat}</p>
                     </div>
                     <div className="col-2 m-2">
-                        <p>$67</p>
+                        <p>${fare}</p>
                     </div>
                 </div>
                 <div className="row  m-2 bg-light p-3">
@@ -74,10 +78,10 @@ const Search = (props) => {
                         <img src={rideImage} style={{ width: "50px" }} alt="image" />
                     </div>
                     <div className="col-6 m-2 text-center">
-                        <p text-capitalize>{ride} <img style={{width:'20px'}} src={peopleicon} alt=""/> 4</p>
+                        <p text-capitalize>{ride} <img style={{width:'20px'}} src={peopleicon} alt=""/> {seat}</p>
                     </div>
                     <div className="col-2 m-2">
-                        <p>$67</p>
+                        <p>${fare}</p>
                     </div>
                 </div>
 
