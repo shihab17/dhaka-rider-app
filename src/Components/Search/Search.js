@@ -30,17 +30,17 @@ const Search = (props) => {
     return (
         <div className="row">
             <div className="col-md-3 m-5 " style={{ backgroundColor: "#EFEFEF" }}>
-                <div className="row " style={{ backgroundColor: "#FF6E40", color: "white", borderLeft: "5px solid white" }}>
+                <div className="row " style={{ backgroundColor: "#FF6E40", color: "white"}}>
                   <Timeline >
                       <TimelineItem >
                           <TimelineSeparator >
-                              <TimelineDot color="primary"></TimelineDot>
+                              <TimelineDot ></TimelineDot>
                           </TimelineSeparator>
                           <TimelineContent >{pickFrom}</TimelineContent>
                       </TimelineItem>
                       <TimelineItem>
                           <TimelineSeparator>
-                              <TimelineDot color="primary"></TimelineDot>
+                              <TimelineDot ></TimelineDot>
                           </TimelineSeparator>
                           <TimelineContent>{pickTo}</TimelineContent>
                       </TimelineItem>

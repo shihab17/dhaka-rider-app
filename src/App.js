@@ -14,6 +14,8 @@ import { createContext, useState } from 'react';
 import Destination from './Components/Destination/Destination';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Search from './Components/Search/Search';
+import NoMatch from './Components/NoMatch/NoMatch';
+import data from './Data/Data.json'
 export const loggedInUserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -25,6 +27,7 @@ function App() {
     console.log("clicked by", ride)
     setRider(ride)
   }
+  
   const handleSearch = () => {
     const pickFrom = document.getElementById("pickFrom").value;
     const pickTo = document.getElementById("pickTo").value;
@@ -40,7 +43,7 @@ function App() {
         <Router>
 
           <nav className="m-4 p-2">
-            <Link className="navbar-brand text-white" style={{fontSize:'32px', marginRight:'50px'}} >Dhaka Riders</Link>
+            <Link className="navbar-brand text-white" style={{ fontSize: '32px', marginRight: '50px' }} >Dhaka Riders</Link>
             <Link className="navbar-brand" to="/home" >Home</Link>
             <Link className="navbar-brand" to="/destination" >Destination</Link>
             <Link className="navbar-brand" to="/" >Blog</Link>
@@ -58,7 +61,7 @@ function App() {
               <Home handleRider={handleRider}></Home>
             </Route>
             <PrivateRoute path="/destination">
-              <Destination handleSearch={handleSearch}></Destination>
+              <Destination data={data} handleSearch={handleSearch}></Destination>
             </PrivateRoute>
             <PrivateRoute path="/search">
               <Search pickFrom={pickFrom} pickTo={pickTo} ride={rider}></Search>
@@ -68,6 +71,9 @@ function App() {
             </Route>
             <Route path="/">
               <Home></Home>
+            </Route>
+            <Route path="*">
+              <NoMatch></NoMatch>
             </Route>
           </Switch>
         </Router>
