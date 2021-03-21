@@ -4,7 +4,14 @@ import car from './../../images/Frame-2.png';
 import bus from './../../images/Frame-1.png';
 import train from './../../images/Group.png';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import peopleicon from './../../images/peopleicon.png'
+import peopleicon from './../../images/peopleicon.png';
+import Button from '@material-ui/core/Button';
+import Timeline from '@material-ui/lab/Timeline';
+import TimelineItem from '@material-ui/lab/TimelineItem';
+import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
+import TimelineConnector from '@material-ui/lab/TimelineConnector';
+import TimelineContent from '@material-ui/lab/TimelineContent';
+import TimelineDot from '@material-ui/lab/TimelineDot';
 const Search = (props) => {
     const { pickFrom, pickTo, ride } = props;
     let rideImage;
@@ -23,9 +30,21 @@ const Search = (props) => {
     return (
         <div className="row">
             <div className="col-md-3 m-5 " style={{ backgroundColor: "#EFEFEF" }}>
-                <div className="row p-4 m-1" style={{ backgroundColor: "#FF6E40", color: "white", borderLeft: "5px solid white" }}>
-                    <h1>{pickFrom}</h1>
-                    <h1>{pickTo}</h1>
+                <div className="row " style={{ backgroundColor: "#FF6E40", color: "white", borderLeft: "5px solid white" }}>
+                  <Timeline >
+                      <TimelineItem >
+                          <TimelineSeparator >
+                              <TimelineDot color="primary"></TimelineDot>
+                          </TimelineSeparator>
+                          <TimelineContent >{pickFrom}</TimelineContent>
+                      </TimelineItem>
+                      <TimelineItem>
+                          <TimelineSeparator>
+                              <TimelineDot color="primary"></TimelineDot>
+                          </TimelineSeparator>
+                          <TimelineContent>{pickTo}</TimelineContent>
+                      </TimelineItem>
+                  </Timeline>
 
                 </div>
                 <div className="row  m-2 bg-light p-3">
