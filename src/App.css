@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+ 
 }
 
 .App-logo {
@@ -36,4 +37,8 @@
     transform: rotate(360deg);
   }
 }
-
+.apps{
+  background-image: url('https://www.localguidesconnect.com/t5/image/serverpage/image-id/82167i9A8C2AC25DCA7EE2/image-size/large?v=1.0&px=999');
+  /* background-repeat: no-repeat; */
+  background-size: auto;
+}

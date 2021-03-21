@@ -6,6 +6,8 @@ import firebaseConfig from './firebase.config';
 import { loggedInUserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './Login.css'
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(loggedInUserContext);
     console.log("login user", loggedInUser)
@@ -147,14 +149,16 @@ const Login = () => {
 
     return (
         <div className=" m-5 ">
-            <div className="row d-flex justify-content-center">
-                <div className=" m-5 p-5 border">
-
-                    <h1>Create an account </h1>
+            <div className="row d-flex justify-content-center ">
+                <div className=" m-5 p-5 border bg-light">
+                    {
+                        newUser ? <h1>Create an account </h1> : <h1>Login</h1>
+                    }
+                    
                     <p className="text-danger">{msg.errorMsg}</p>
                     {msg.success && <p className="text-success">User {newUser ? "created" : "Logged In"}  successfully </p>}
                     <br />
-                    <form action="" onSubmit={handleSubmit} className="form-group">
+                    <form action="" onSubmit={handleSubmit} className="form-group ">
                         {
                             newUser && <label htmlFor="name">Name</label>
                         }
@@ -175,12 +179,21 @@ const Login = () => {
                         }
 
                         <br />
-                        <input type="submit" className="btn btn-primary btn-block  p-2" value={newUser ? "Create an account " : "Login"} />
+                        {
+                            !newUser && <input type="checkbox" name="remember" id="remember"/> 
+                        }
+                        {
+                            !newUser && <label htmlFor="remember" className="m-3"> Remember Me</label>
+                        }
+                        {
+                            !newUser && <Link className="m-3 myTextColor">Forgot Password</Link>
+                        }
+                        <input type="submit" className="btn  btn-block  p-2 myButton" value={newUser ? "Create an account " : "Login"} />
                     </form>
                     <input style={{ display: 'none' }} type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="newUser" />
                     {
-                        newUser ? <div>Don’t have an account? <label htmlFor="newUser"><span className="badge badge-primary"> Create an account</span> </label></div>  : 
-                       <div>Already have an account?<label htmlFor="newUser"> <span className="badge badge-primary"> Login </span> </label></div> 
+                        !newUser ? <div>Don’t have an account? <label htmlFor="newUser"><span className="badge badge-primary myButton"> Create an account</span> </label></div>  : 
+                       <div>Already have an account?<label htmlFor="newUser"> <span className="badge badge-primary myButton"> Login </span> </label></div> 
                     }
                     
                 </div>
@@ -196,7 +209,7 @@ const Login = () => {
             </div>
             <div className="row d-flex justify-content-center" >
 
-                <Button onClick={handleGoogleSignIn}> Login with Google</Button>
+                <Button onClick={handleGoogleSignIn} className="bg-light text-dark m-4 p-3"> <img style={{width: "40px"}} src="https://icons-for-free.com/iconfiles/png/512/google-1320568243143037383.png" alt="" className="ml-2 mr-5"/> <span className="mr-5 ml-3 font-weight-bold">Continue with Google</span> </Button>
             </div>
 
         </div>

@@ -1,15 +1,16 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
-
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import './Destination.css'
 const Destination = (props) => {
 
     // const handleChange = (e) => {
     //     console.log(e.target.name,e.target.value)
     // }
     return (
-        <div className="row m-2">
+        <div className="destination">
+            <div className="row m-2 ">
             <div className="col-md-3 " style={{ backgroundColor: "#EFEFEF" }}>
                 <label htmlFor="pickFrom" className="text-right">Pick From</label><br />
                 <input type="text" className="form-control" id="pickFrom" name="pickFrom" required />
@@ -22,10 +23,25 @@ const Destination = (props) => {
 
             </div>
             <div className="col-md-8">
-                <h1>This is second </h1>
+                <Map google={props.google} >
+                </Map>
             </div>
         </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        </div>
+        
     );
 };
 
-export default Destination;
+export default GoogleApiWrapper({
+    apiKey: ("AIzaSyDbWzon4lRHDne-QK5OrHgYoSoQllDJTVg")
+})(Destination)

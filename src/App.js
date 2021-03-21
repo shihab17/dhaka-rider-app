@@ -34,18 +34,20 @@ function App() {
   }
   console.log("log in user", loggedInUser)
   return (
-    <div className="">
+    <div className="apps">
       <loggedInUserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-        
+
         <Router>
-          <nav className="text-right m-2">
+
+          <nav className="m-4 p-2">
+            <Link className="navbar-brand text-white" style={{fontSize:'32px', marginRight:'50px'}} >Dhaka Riders</Link>
             <Link className="navbar-brand" to="/home" >Home</Link>
             <Link className="navbar-brand" to="/destination" >Destination</Link>
             <Link className="navbar-brand" to="/" >Blog</Link>
             <Link className="navbar-brand" to="/" >Contact</Link>
             {
-              loggedInUser.email ? <span className="text-dark font-weight-bold">{loggedInUser.name}</span>  : <Button className="bg-dark">
-                <Link className="navbar-brand" to="/login" >Login</Link>
+              loggedInUser.email ? <span className="text-light font-weight-bold">{loggedInUser.name}</span> : <Button className="bg-dark">
+                <Link className="navbar-brand active" to="/login" >Login</Link>
               </Button>
             }
 
